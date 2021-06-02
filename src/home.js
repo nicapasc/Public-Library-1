@@ -5,12 +5,18 @@ function getTotalAccountsCount(accounts) {
   return accounts.length
 }
 
+function isBookBorrowed(book) {
+  //helper function
+  return book.borrows[0].returned===false;
+}
+
 function getBooksBorrowedCount(books) {
-//books not yet returned
-const borrowed = books.filter((book) => book.borrows[0].returned===false);
-const resborrowed = borrowed.length;
-//return not log
-return resborrowed;
+  //books not yet returned
+  const borrowed = books.filter(isBookBorrowed);
+  
+  const resborrowed = borrowed.length;
+  //return not log
+  return resborrowed;
 }
 
 function getMostCommonGenres(books) {

@@ -8,7 +8,7 @@ if (id === accounts[i].id){
     }
   }
 //return 
-return {}
+return {};
 }
 
 function sortAccountsByLastName(accounts) {
@@ -47,10 +47,14 @@ function getBooksPossessedByAccount(account, books, authors) {
       }
     })
     console.log(books_taken);
+    //each method as a loop
     books_taken.forEach(book=>{
+      //find method, where did person.id come from?
       let anAuthor = authors.find(person => person.id === book.authorId);
+      //what does this do
       book['author'] = anAuthor;
     })
+    //why do we have a console.log and a return
     console.log(books_taken);
     return books_taken;
   }
